@@ -204,6 +204,72 @@ Not too bad, right? Some parts are there to throw you off, but I’m sure you’
 
 At this point, all that’s left is to reverse-engineer the path to the treasure. Again, we can do this statically or dynamically. Statically: we dig further into `Game::push_loot()` and figure out how `loot::get()`, `char_puker::get()`, and so on works. Dynamically: we can brute-force solutions by generating (with [DFS](https://en.wikipedia.org/wiki/Depth-first_search)) all paths of length 60, and check them on the sim (or via angr) to see if it is the correct path. In proper mentor fashion, I’ll leave this decision and step as an exercise for the reader.
 
+## Solve
+In the end, one possible path is:
+
+```
+g e
+g e
+g e
+g e
+g s
+g s
+g s
+g e
+g e
+g e
+g e
+g e
+g e
+g e
+g e
+g e
+g n
+g n
+g n
+g e
+g e
+g e
+g e
+g e
+g e
+g s
+g s
+g s
+g s
+g s
+g w
+g w
+g w
+g w
+g w
+g w
+g w
+g a
+g s
+g e
+g e
+g s
+g e
+g f 2
+g w
+g w
+g w
+g w
+g w
+g w
+g w
+g w
+g w
+g w
+g w
+g w
+g n
+g n
+g n
+end
+```
+
 ## Flag
 ```
 firebird{D1d_y0u_b0rroW_a_80ok_on_revers1ng_in_th3_libr42y?}
